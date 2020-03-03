@@ -1,6 +1,2 @@
-# tax calc
-"# tax calc" 
+# Tax Calculation Service
 
-
-
-"# tax_calc" 
