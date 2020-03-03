@@ -1,0 +1,10 @@
+{
+    "$id": "successSchema",
+    "description": "Success Model",
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string"
+      }
+    }
+  }
