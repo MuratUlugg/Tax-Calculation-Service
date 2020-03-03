@@ -1,12 +1,8 @@
 'use strict'
 let startTime = new Date()
-const globalConf = require('./api/configs/globalConf')
+const globalConf = require('./api/config/globalConf')
 const plugin = require('fastify-server-timeout')
 
-//Logify
-const logifyAlert = require('logify-alert');
-const client = new logifyAlert(globalConf.logifyApiKey);
-client.startHandling();
 
 //File System Reader
 const fs = require("fs")
@@ -29,9 +25,8 @@ fastify.register(helmet, { crossdomain: { setTo: 'all' } })
 fastify.register(require('fastify-sensible'))
 
 // Import Swagger Options
-const swaggerConf = require('./api/configs/swaggerConf')
+const swaggerConf = require('./api/config/swaggerConf')
 fastify.register(require('fastify-swagger'), swaggerConf.config) // Register Swagger
-
 
 //Import Router Start
 const taxCalcRouter = require('./api/components/taxCalc/taxCalcRouter')

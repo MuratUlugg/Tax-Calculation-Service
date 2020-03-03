@@ -1,28 +1,26 @@
 'use strict'
-const taxCalcController = require('./invoiceController')
-
-const calcTax = [{
+const taxCalcController = require('./taxCalcController')
+const kerzziciroRoute = [{
     method: 'POST',
-    url: '/api/invoice/save',
-    handler: taxCalcController.saveInvoice,
+    url: '/api/taxCalc',
+    handler: taxCalcController.taxCalc,
     schema: {
-        description: 'Fatura kayit etmeyi saglar',
-        tags: ['invoice'],
-        summary: 'Save Invoice From Kerzz',
+        description: 'Kdv Hesaplar',
+        tags: ['tax-calc'],
+        summary: 'Kdv Hesaplar',
         body: {
             type: 'object',
             properties: {
                 amount: {
-                    type: 'decimal'
-                }, rate: {
-                    type: 'integer'
+                    type: 'string'
+                },
+                taxrate: {
+                    type: 'string'
                 }
             }
         }
-    }, response: {
-        200: "successSchema#",
-        500: "errorSchema#",
     }
-}
+}]
 
-]
+
+module.exports = kerzziciroRoute
